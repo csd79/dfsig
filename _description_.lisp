@@ -4,13 +4,6 @@
 
 
 
-;; (transport :target     ; checkbox/formfield label
-;;            :row-args   ; a plist created from xarray columns
-;;            :extra-args ; another plist with arbitrary values
-;;            :generator  ; produces the value to inject; receives either a single arg or a plist (concatenation of ROW-BINDS and EXTRA-ARGS)
-;;            :injector)  ; injects the value into doc, may target any structural part; args are: DOCUMENT, LABEL, VALUE
-
-
 
 
 
@@ -22,7 +15,8 @@
 ;  :target     "Jelölõ6"
   :target     1
   :row-args   ()
-  :extra-args (t)
+  :literals   (t)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -32,7 +26,8 @@
   ;; "(1) Szervezeti bélyegzõ tanúsítvány"
   :target     2
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -43,7 +38,8 @@
 ;  :target     "Jelölõ3"
   :target     3
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -53,7 +49,8 @@
   ;; "(1.2) E-ügyintézés célú tanúsítvány (KET, KGyHSz)"
   :target     "EugyintNegyzet"
   :row-args   ()
-  :extra-args ("E-ügyintézés célú (kiadmányozói)")
+  :literals   ("E-ügyintézés célú (kiadmányozói)")
+  :plist-keys ()
   :generator  (lambda (type)
                 (member type '("E-ügyintézés célú (kiadmányozói)"
                                "E-ügyintézés célú (ügyintézõi)")
@@ -66,7 +63,8 @@
   ;; "(1.2) Általános célú tanúsítvány"
   :target     "AltalanosNegyzet"
   :row-args   ()
-  :extra-args ("E-ügyintézés célú (kiadmányozói)")
+  :literals   ("E-ügyintézés célú (kiadmányozói)")
+  :plist-keys ()
   :generator  (lambda (type) (string= type "Általános célú"))
   :injector   set-checkbox
   )
@@ -76,7 +74,8 @@
   ;; "(1.3) Ügyintézésben közremûködõ ügyintézõ"
   :target     "UgyintezoiNegyzet"
   :row-args   ()
-  :extra-args ("E-ügyintézés célú (kiadmányozói)")
+  :literals   ("E-ügyintézés célú (kiadmányozói)")
+  :plist-keys ()
   :generator  (lambda (type) (string= type "E-ügyintézés célú (ügyintézõi)"))
   :injector   set-checkbox
   )
@@ -86,7 +85,8 @@
   ;; "(1.3) Ügyintézést biztosító szerv nevében történõ kiadmányozást végzõ"
   :target     "KiadmanyozoiNegyzet"
   :row-args   ()
-  :extra-args ("E-ügyintézés célú (kiadmányozói)")
+  :literals   ("E-ügyintézés célú (kiadmányozói)")
+  :plist-keys ()
   :generator  (lambda (type) (string= type "E-ügyintézés célú (kiadmányozói)"))
   :injector   set-checkbox
   )
@@ -97,7 +97,8 @@
 ;  :target     "Jelölõ12"
   :target     8
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -108,7 +109,8 @@
 ;  :target     "Jelölõ13"
   :target     9
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -118,7 +120,8 @@
   ;; "(1.4) 0 Ft"
   :target     "NullaNegyzet"
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -128,7 +131,8 @@
   ;; "(1.4) 1 000 000 Ft"
   :target     "EgyNegyzet"
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -138,7 +142,8 @@
   ;; "(1.4) 20 000 000 Ft"
   :target     "HuszNegyzet"
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -148,7 +153,8 @@
   ;; "(1.4) 200 000 000 Ft"
   :target     "KetszazNegyzet"
   :row-args   ()
-  :extra-args (t)
+  :literals   (t)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -159,7 +165,8 @@
 ;  :target     "Jelölõ24"
   :target     14
   :row-args   ()
-  :extra-args (t)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -169,7 +176,8 @@
   ;; "(1.6) USB token (QSCD)"
   :target     "USBTokenNegyzet"
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -179,7 +187,8 @@
   ;; "(1.6) Chipkártya (QSCD)"
   :target     "ChipkartyaNegyzet"
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -190,7 +199,8 @@
 ;  :target     "Jelölõ24"
   :target     17
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -200,7 +210,8 @@
   ;; "(1.6) CD"
   :target     "CDNegyzet"
   :row-args   ()
-  :extra-args (t)
+  :literals   (t)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -211,7 +222,8 @@
 ;  :target     "Jelölõ34"
   :target     19
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -222,7 +234,8 @@
 ;  :target     "Jelölõ34"
   :target     20
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -232,7 +245,8 @@
   ;; "(2) Nyilatkozat (A fent megjelölt tanúsítvány(oka)t a..)"
   :target     "NyilatkozatNegyzet"
   :row-args   ()
-  :extra-args ("E-ügyintézés célú (kiadmányozói)")
+  :literals   ("E-ügyintézés célú (kiadmányozói)")
+  :plist-keys ()
   :generator  (lambda (type)
                 (member type '("E-ügyintézés célú (kiadmányozói)"
                                "E-ügyintézés célú (ügyintézõi)")
@@ -245,7 +259,8 @@
   ;; "(3) Szervezet neve"
   :target     "SzervezetNeve"
   :row-args   (1)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-bookmark
   )
@@ -255,7 +270,8 @@
   ;; "(3) Adószám"
   :target     "Adoszam"
   :row-args   (2)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  (lambda (value) (parse-string (round (parse-number value))))
   :injector   set-bookmark
   )
@@ -266,7 +282,8 @@
 ;  :target     "Jelölõ33"
   :target     22
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -276,7 +293,8 @@
   ;; "(3) Bankszámlaszám"
   :target     "Bankszamlaszam"
   :row-args   (3)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-bookmark
   )
@@ -286,7 +304,8 @@
   ;; "(3) Irányítószám"
   :target     "Irszam"
   :row-args   (4)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  (lambda (value) (parse-string (round (parse-number value))))
   :injector   set-bookmark
   )
@@ -296,7 +315,8 @@
   ;; "(3) Település"
   :target     "Telepules"
   :row-args   (5)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-bookmark
   )
@@ -306,7 +326,8 @@
   ;; "(3) Közterület neve, házszám"
   :target     "Kozter"
   :row-args   (6)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-bookmark
   )
@@ -317,7 +338,8 @@
   :target     "SzervTel"
 ;  :target     47
   :row-args   (7)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-bookmark
   )
@@ -328,7 +350,8 @@
   :target     "SzervEmail"
 ;  :target     12
   :row-args   (8)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-bookmark
   )
@@ -338,7 +361,8 @@
   ;; "(4) Név"
   :target     "Szöveg17"
   :row-args   ()
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -348,7 +372,8 @@
   ;; "(4) Adószám"
   :target     "Szöveg18"
   :row-args   ()
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -358,7 +383,8 @@
   ;; "(4) Bankszámlaszám"
   :target     ""
   :row-args   ()
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -368,7 +394,8 @@
   ;; "(4) Irányítószám"
   :target     "Szöveg19"
   :row-args   ()
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -378,7 +405,8 @@
   ;; "(4) Település"
   :target     ""
   :row-args   ()
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -388,7 +416,8 @@
   ;; "(4) Közterület neve, házszám"
   :target     "Szöveg21"
   :row-args   ()
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -398,7 +427,8 @@
   ;; "(4) Telefon"
   :target     "Szöveg10"
   :row-args   ()
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -408,7 +438,8 @@
   ;; "(4) E-mail"
   :target     "Szöveg22"
   :row-args   ()
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )|#
@@ -418,7 +449,8 @@
   ;; "(5) A tanúsítványban megjelenjen?"
   :target     "SzervEgysNegyzet"
   :row-args   (9)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  (lambda (value)
                 (not (or (msoffice:empty-cell-p value)
                          (string= value ""))))
@@ -430,7 +462,8 @@
   ;; "(5) Szervezeti egység neve"
   :target     "SzervezetEgyseg"
   :row-args   (9)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-bookmark
   )
@@ -440,7 +473,8 @@
   ;; "(6) Név*"
   :target     "KepvJogNev"
   :row-args   (10)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-bookmark
   )
@@ -450,7 +484,8 @@
   ;; "(6) Beosztás*"
   :target     "KepvJogBeoszt"
   :row-args   (11)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-bookmark
   )
@@ -460,7 +495,8 @@
   ;; "(6) Név"
   :target     "Kepvis2"
   :row-args   ()
-  :extra-args ("")
+  :literals   ("")
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -470,7 +506,8 @@
   ;; "(6) Beosztás"
   :target     "Szöveg61"
   :row-args   ()
-  :extra-args ("")
+  :literals   ("")
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -480,7 +517,8 @@
   ;; "(7) Viselt családnév"
   :target     "VisCsNev"
   :row-args   (12)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -490,7 +528,8 @@
   ;; "(7) Viselt utónév 1"
   :target     "VisUtNev1"
   :row-args   (13)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -500,7 +539,8 @@
   ;; "(7) Viselt utónév 2"
   :target     "VisUtNev2"
   :row-args   (14)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -510,7 +550,8 @@
   ;; "(7) Születési családnév"
   :target     "SzulCsNev"
   :row-args   (15)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -520,7 +561,8 @@
   ;; "(7) Születési utónév 1"
   :target     "SzulUtNev1"
   :row-args   (16)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -530,7 +572,8 @@
   ;; "(7) Születési utónév 2"
   :target     "SzulUtNev2"
   :row-args   (17)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -540,7 +583,8 @@
   ;; "(7) Anyja születési családneve"
   :target     "AnyjaCsNev"
   :row-args   (18)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -550,7 +594,8 @@
   ;; "(7) Anyja születési utóneve 1"
   :target     "AnyjaUtNev1"
   :row-args   (19)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -560,7 +605,8 @@
   ;; "(7) Anyja születési utóneve 2"
   :target     "AnyjaUtNev2"
   :row-args   (20)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -570,7 +616,8 @@
   ;; "(7) Születési ország"
   :target     "SzulOrsz"
   :row-args   (21)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -580,7 +627,8 @@
   ;; "(7) Születési hely"
   :target     "SzulHely"
   :row-args   (22)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -590,7 +638,8 @@
   ;; "(7) Születési dátum"
   :target     "SzulDatum"
   :row-args   (23)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -600,7 +649,8 @@
   ;; "(7.2) Beosztás"
   :target     "Beosztas"
   :row-args   (24)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -610,7 +660,8 @@
   ;; "(7.2) A tanúsítványban megjelenjen?"
   :target     "BeosztNegyzet"
   :row-args   ()
-  :extra-args (nil)
+  :literals   (nil)
+  :plist-keys ()
   :generator  identity
   :injector   set-checkbox
   )
@@ -620,6 +671,8 @@
   ;; "(7.2) Személyazonosító ig."
   :target     "SzigNegyzet"
   :row-args   (26)
+  :literals   ()
+  :plist-keys ()
   :generator  (lambda (id-number)
                 (let ((str (string-upcase (clean-string (format nil "~a" id-number)))))
                   (not (<= 65 (char-code (elt str 0)) 90))))
@@ -631,6 +684,8 @@
   ;; "(7.2) Útlevél"
   :target     "UtlevelNegyzet"
   :row-args   (26)
+  :literals   ()
+  :plist-keys ()
   :generator  (lambda (id-number)
                 (let ((str (string-upcase (clean-string (format nil "~a" id-number)))))
                   (and (<= 65 (char-code (elt str 0)) 90)
@@ -643,6 +698,8 @@
   ;; "(7.2) Vezetõi engedély"
   :target     "VezengNegyzet"
   :row-args   (26)
+  :literals   ()
+  :plist-keys ()
   :generator  (lambda (id-number)
                 (let ((str (string-upcase (clean-string (format nil "~a" id-number)))))
                   (and (<= 65 (char-code (elt str 0)) 90)
@@ -655,6 +712,8 @@
   ;; "(7.2) Igazolvány száma"
   :target     "Igszam"
   :row-args   (26)
+  :literals   ()
+  :plist-keys ()
   :generator  (lambda (id-number)
                 (string-upcase (clean-string (format nil "~a" id-number))))
   :injector   set-formfield
@@ -665,7 +724,8 @@
   ;; "(7.2) Telefon"
   :target     "Telefon"
   :row-args   (27)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -675,7 +735,8 @@
   ;; "(7.3) E-mail"
   :target     "Email"
   :row-args   (28)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -685,7 +746,8 @@
   ;; "(8.1) Alany neve"
   :target     "Szöveg48"
   :row-args   ()
-  :extra-args ("")
+  :literals   ("")
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -695,7 +757,8 @@
   ;; "(8.2) Tanúsítványban megjelenõ e-mail cím"
   :target     "Szöveg48"
   :row-args   ()
-  :extra-args ("")
+  :literals   ("")
+  :plist-keys ()
   :generator  identity
   :injector   set-formfield
   )
@@ -705,7 +768,8 @@
   ;; "Kelt hely"
   :target     "Szöveg56"
   :row-args   (5)
-  :extra-args ()
+  :literals   ()
+  :plist-keys ()
   :generator  clean-string
   :injector   set-formfield
   )
@@ -715,7 +779,8 @@
   ;; "Kelt dátum"
   :target     "Szöveg57"
   :row-args   ()
-  :extra-args ("idõbélyegzõ szerint")
+  :literals   ("idõbélyegzõ szerint")
+  :plist-keys ()
   :generator  clean-string
 ;  :injector   set-formfield
   :injector   set-bookmark
