@@ -1,18 +1,25 @@
-;;; Feloldott Megrendelo_2_9-1.docx kitöltésének leírása
-;;; ISO 8859-2, CR LF
+;;;; Feloldott Megrendelo_2_9-1.docx kitöltésének leírása
+;;;; ISO 8859-2, CR LF
 
 
 
 
 
+;;; Parameters ---------------------------------------------------
 
+(:starting-row 2)
+
+
+
+
+
+;;; Descriptions -------------------------------------------------
 
 (
  
  
  (
   ;; "(1) Munkatársi (üzleti) aláíró tanúsítvány"
-;  :target     "Jelölõ6"
   :target     1
   :row-args   ()
   :literals   (t)
@@ -35,7 +42,6 @@
 
  (
   ;; "(1) Eszköz bélyegzõ tanúsítvány"
-;  :target     "Jelölõ3"
   :target     3
   :row-args   ()
   :literals   (nil)
@@ -94,7 +100,6 @@
  
  (
   ;; "(1.3) Ügyintézést biztosító szerv vagy annak szervezeti egysége (szervezeti bélyegzõ tanúsítvány)"
-;  :target     "Jelölõ12"
   :target     8
   :row-args   ()
   :literals   (nil)
@@ -106,7 +111,6 @@
  
  (
   ;; "(1.3) Ügyintézést biztosító szerv által mûködtetett informatikai eszköz (eszköz bélyegzõ tanúsítvány)"
-;  :target     "Jelölõ13"
   :target     9
   :row-args   ()
   :literals   (nil)
@@ -162,7 +166,6 @@
  
  (
   ;; "(1.5) A tanúsítvány RSA algoritmussal kerüljön kiállításra"
-;  :target     "Jelölõ24"
   :target     14
   :row-args   ()
   :literals   (nil)
@@ -196,7 +199,6 @@
  
  (
   ;; "(1.6) Chipkártya olvasó"
-;  :target     "Jelölõ24"
   :target     17
   :row-args   ()
   :literals   (nil)
@@ -219,7 +221,6 @@
  
  (
   ;; "(1.6) Helyszíni átadást kérek"
-;  :target     "Jelölõ34"
   :target     19
   :row-args   ()
   :literals   (nil)
@@ -231,7 +232,6 @@
  
  (
   ;; "(1.6) Az igényhez PKCS10 kérés kapcsolódik"
-;  :target     "Jelölõ34"
   :target     20
   :row-args   ()
   :literals   (nil)
@@ -279,7 +279,6 @@
  
  (
   ;; "(3) Ha van közösségi, akkor az jelenjen meg tanúsítványban"
-;  :target     "Jelölõ33"
   :target     22
   :row-args   ()
   :literals   (nil)
@@ -336,7 +335,6 @@
  (
   ;; "(3) Telefon"
   :target     "SzervTel"
-;  :target     47
   :row-args   (7)
   :literals   ()
   :plist-keys ()
@@ -348,101 +346,12 @@
  (
   ;; "(3) E-mail cím"
   :target     "SzervEmail"
-;  :target     12
   :row-args   (8)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
   :injector   set-bookmark
   )
- 
-
-#| (
-  ;; "(4) Név"
-  :target     "Szöveg17"
-  :row-args   ()
-  :literals   ()
-  :plist-keys ()
-  :generator  identity
-  :injector   set-formfield
-  )
- 
- 
- (
-  ;; "(4) Adószám"
-  :target     "Szöveg18"
-  :row-args   ()
-  :literals   ()
-  :plist-keys ()
-  :generator  identity
-  :injector   set-formfield
-  )
- 
- 
- (
-  ;; "(4) Bankszámlaszám"
-  :target     ""
-  :row-args   ()
-  :literals   ()
-  :plist-keys ()
-  :generator  identity
-  :injector   set-formfield
-  )
- 
- 
- (
-  ;; "(4) Irányítószám"
-  :target     "Szöveg19"
-  :row-args   ()
-  :literals   ()
-  :plist-keys ()
-  :generator  identity
-  :injector   set-formfield
-  )
- 
- 
- (
-  ;; "(4) Település"
-  :target     ""
-  :row-args   ()
-  :literals   ()
-  :plist-keys ()
-  :generator  identity
-  :injector   set-formfield
-  )
- 
- 
- (
-  ;; "(4) Közterület neve, házszám"
-  :target     "Szöveg21"
-  :row-args   ()
-  :literals   ()
-  :plist-keys ()
-  :generator  identity
-  :injector   set-formfield
-  )
- 
- 
- (
-  ;; "(4) Telefon"
-  :target     "Szöveg10"
-  :row-args   ()
-  :literals   ()
-  :plist-keys ()
-  :generator  identity
-  :injector   set-formfield
-  )
- 
- 
- (
-  ;; "(4) E-mail"
-  :target     "Szöveg22"
-  :row-args   ()
-  :literals   ()
-  :plist-keys ()
-  :generator  identity
-  :injector   set-formfield
-  )|#
  
 
  (
@@ -779,10 +688,9 @@
   ;; "Kelt dátum"
   :target     "Szöveg57"
   :row-args   ()
-  :literals   ("idõbélyegzõ szerint")
+  :literals   ("elektronikus idõbélyegzõ szerint")
   :plist-keys ()
   :generator  clean-string
-;  :injector   set-formfield
   :injector   set-bookmark
   )
 

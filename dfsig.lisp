@@ -37,33 +37,32 @@
                                                 "Tanúsítvány megrendelõ - "
                                                 (full-name row)))
                        :inject-descripts  nil
+                       :inject-params     nil
                        :inject-sourcekey  :source
                        :inject-dump-fn    ,#'full-name
                        :inject-save-pdf   t)
               :execute-fn
               #'(lambda (obj)
+                  ;; Loading description & parameters
+                  (multiple-value-bind (params descripts)
+                      (load-descriptions
+                       (get-state obj :descripts-file))
+                    (setf (get-state obj :inject-descripts) descripts
+                          (get-state obj :inject-params) params))
                   ;; Adding & loading source spreadsheet
                   (add-data-source obj (get-state obj :inject-sourcekey)
                                    (get-state obj :sourcefile))
-                  (load-data-source obj (get-state obj :inject-sourcekey) 2)
+                  (load-data-source obj (get-state obj :inject-sourcekey)
+;                                    2)
+                                    (getf (get-state obj :inject-params) :starting-row))
                   ;; Setting progress bar length
                   (setf (pstep-limit obj)
                         (xarray-actual-height
                          (source-data obj (get-state obj :inject-sourcekey))))
-
-#|                  (wg-msg "~a        ~a"
-                          (find-symbol "SET-CHECKBOX")
-;                          (find-symbol "SET-CHECKBOX" "INJECT")
-                          *package*)|#
-                  ;; Loading description
-                  (setf (get-state obj :inject-descripts)
-                        (load-descriptions
-                         (get-state obj :descripts-file)))
                   ;; Starting process
                   (inject::injection obj :greeting "Inicializálás...~%~%")
                   ;; Cleanup
-                  (purge-data-source obj (get-state obj :inject-sourcekey))
-                  ))))
+                  (purge-data-source obj (get-state obj :inject-sourcekey))))))
 
     (load-state obj :package-name "DFSIG" :keys *pkeys*)
 

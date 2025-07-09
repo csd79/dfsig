@@ -7,16 +7,18 @@
 (asdf:load-system "dfsig")
 
 (in-package "DFSIG")
-(setf *independent-exe* t)
+
+(setf dfsig::*independent-exe* t)
 
 (lw:deliver 'dfsig:start
-    "c:\\Users\\cselovszkid\\common-lisp\\dfsig\\dfsig_v0.10.exe"
-    1 ; on higher opt levels it won't even start ('Illegal path...")
+    "c:\\Users\\cselovszkid\\common-lisp\\dfsig\\dfsig_v0.11.exe"
+    5
     :interface :capi
     :console :io
     :multiprocessing t
 ;    :icon-file "c:\\Users\\cselovszkid\\common-lisp\\docfctory\\Gutenberg.ico"
-
+    :keep-symbols '(*appdir* *independent-exe*)
+    :packages-to-keep-externals '(wax inject msoffice) ; fn-s called indirectly (symbol-function...) are invisible to the shaker
     :keep-package-manipulation t
     :keep-function-name :all
     :keep-eval t
@@ -27,6 +29,5 @@
     :keep-conditions :all
     :keep-debug-mode t
     :keep-load-function t
-
     :compact t
 )
