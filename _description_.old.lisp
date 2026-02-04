@@ -7,7 +7,7 @@
 
 ;;; Parameters ---------------------------------------------------
 
-(:starting-row 3)
+(:starting-row 2)
 
 
 
@@ -272,7 +272,7 @@
   :row-args   (2)
   :literals   ()
   :plist-keys ()
-  :generator  (lambda (value) (parse-string (round (parse-taxid value))))
+  :generator  (lambda (value) (parse-string (round (parse-number value))))
   :injector   set-bookmark
   )
  
@@ -579,7 +579,7 @@
  (
   ;; "(7.2) Személyazonosító ig."
   :target     "SzigNegyzet"
-  :row-args   (25)
+  :row-args   (26)
   :literals   ()
   :plist-keys ()
   :generator  (lambda (id-number)
@@ -592,7 +592,7 @@
  (
   ;; "(7.2) Útlevél"
   :target     "UtlevelNegyzet"
-  :row-args   (25)
+  :row-args   (26)
   :literals   ()
   :plist-keys ()
   :generator  (lambda (id-number)
@@ -606,7 +606,7 @@
  (
   ;; "(7.2) Vezetõi engedély"
   :target     "VezengNegyzet"
-  :row-args   (25)
+  :row-args   (26)
   :literals   ()
   :plist-keys ()
   :generator  (lambda (id-number)
@@ -620,7 +620,7 @@
  (
   ;; "(7.2) Igazolvány száma"
   :target     "Igszam"
-  :row-args   (25)
+  :row-args   (26)
   :literals   ()
   :plist-keys ()
   :generator  (lambda (id-number)
@@ -632,7 +632,7 @@
  (
   ;; "(7.2) Telefon"
   :target     "Telefon"
-  :row-args   (26)
+  :row-args   (27)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
@@ -643,7 +643,7 @@
  (
   ;; "(7.3) E-mail"
   :target     "Email"
-  :row-args   (27)
+  :row-args   (28)
   :literals   ()
   :plist-keys ()
   :generator  clean-string

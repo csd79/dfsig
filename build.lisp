@@ -11,7 +11,7 @@
 (setf dfsig::*independent-exe* t)
 
 (lw:deliver 'dfsig:start
-    "c:\\Users\\cselovszkid\\common-lisp\\dfsig\\dfsig_v0.11.exe"
+    "c:\\Users\\cselovszkid\\common-lisp\\dfsig\\dfsig_v0.12.exe"
     5
     :interface :capi
     :console :io

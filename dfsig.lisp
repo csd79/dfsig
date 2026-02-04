@@ -20,6 +20,11 @@
                   '(12 13 14))))
 
 
+(defun parse-taxid (string)
+  (let ((pure (remove-if-not #'digit-char-p string)))
+    (parse-number pure)))
+
+
 (defparameter *pkeys* '(:outdir :sourcefile))
 
 
@@ -99,4 +104,4 @@
         #'(lambda (interface)
             (declare (ignore interface))
             (save-state obj :package-name "DFSIG" :keys *pkeys*)
-            (wax-execute obj :errorsink-on t))))))
+            (wax-execute obj :errorsink-on nil))))))

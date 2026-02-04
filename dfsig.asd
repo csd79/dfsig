@@ -1,7 +1,7 @@
 (defsystem "dfsig"
   :description "Doc generator for sig"
   :author      "Denes Cselovszki <denes.cselovszki@gmail.com>"
-  :version     "0.11"
+  :version     "0.12"
   :depends-on  ("ccom3" "msoffice" "inject" "wax")
   :serial      t
   :components  ((:file "package")
