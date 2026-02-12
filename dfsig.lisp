@@ -25,6 +25,21 @@
     (parse-number pure)))
 
 
+(defun taxid (value)
+  (let ((number (cond ((stringp value) (parse-taxid value))
+                      ((numberp value) value)
+                      (t (error "Tax ID ~a is not a number or string." value)))))
+    (if (not (<= 10000000000 number 99999999999))
+      (error "TAX ID ~a should have 11 digits." number)
+      (let ((string (format nil "~a" number)))
+        (concatenate 'string
+                     (subseq string 0 8)
+                     "-"
+                     (subseq string 8 9)
+                     "-"
+                     (subseq string 9))))))
+
+
 (defparameter *pkeys* '(:outdir :sourcefile))
 
 
@@ -48,6 +63,7 @@
                        :inject-save-pdf   t)
               :execute-fn
               #'(lambda (obj)
+;                  (wg-msg "~a" (package-name *package*))
                   ;; Loading description & parameters
                   (multiple-value-bind (params descripts)
                       (load-descriptions
@@ -58,7 +74,6 @@
                   (add-data-source obj (get-state obj :inject-sourcekey)
                                    (get-state obj :sourcefile))
                   (load-data-source obj (get-state obj :inject-sourcekey)
-;                                    2)
                                     (getf (get-state obj :inject-params) :starting-row))
                   ;; Setting progress bar length
                   (setf (pstep-limit obj)
@@ -104,4 +119,4 @@
         #'(lambda (interface)
             (declare (ignore interface))
             (save-state obj :package-name "DFSIG" :keys *pkeys*)
-            (wax-execute obj :errorsink-on nil))))))
+            (wax-execute obj :errorsink-on t))))))

@@ -11,13 +11,13 @@
 (setf dfsig::*independent-exe* t)
 
 (lw:deliver 'dfsig:start
-    "c:\\Users\\cselovszkid\\common-lisp\\dfsig\\dfsig_v0.12.exe"
+    "c:\\Users\\cselovszkid\\common-lisp\\dfsig\\dfsig_v0.13.exe"
     5
     :interface :capi
     :console :io
     :multiprocessing t
 ;    :icon-file "c:\\Users\\cselovszkid\\common-lisp\\docfctory\\Gutenberg.ico"
-    :keep-symbols '(*appdir* *independent-exe*)
+    :keep-symbols '(*appdir* *independent-exe* parse-taxid taxid)
     :packages-to-keep-externals '(wax inject msoffice) ; fn-s called indirectly (symbol-function...) are invisible to the shaker
     :keep-package-manipulation t
     :keep-function-name :all

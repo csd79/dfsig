@@ -272,7 +272,8 @@
   :row-args   (2)
   :literals   ()
   :plist-keys ()
-  :generator  (lambda (value) (parse-string (round (parse-taxid value))))
+;  :generator  (lambda (value) (parse-string (round (parse-taxid value))))
+  :generator  taxid
   :injector   set-bookmark
   )
  
@@ -338,7 +339,7 @@
   :row-args   (7)
   :literals   ()
   :plist-keys ()
-  :generator  identity
+  :generator  fix-phone-number
   :injector   set-bookmark
   )
  
@@ -549,20 +550,25 @@
   :row-args   (23)
   :literals   ()
   :plist-keys ()
-  :generator  identity
+;  :generator  identity
+  :generator  (lambda (val)
+                (cond ((stringp val) val)
+                      ((numberp val)
+                       (subseq (excel-date-string val) 0 10))
+                      (t "")))
   :injector   set-formfield
   )
  
  
- (
-  ;; "(7.2) Beosztás"
-  :target     "Beosztas"
-  :row-args   (24)
-  :literals   ()
-  :plist-keys ()
-  :generator  clean-string
-  :injector   set-formfield
-  )
+; (
+;  ;; "(7.2) Beosztás"
+;  :target     "Beosztas"
+;  :row-args   (24)
+;  :literals   ()
+;  :plist-keys ()
+;  :generator  clean-string
+;  :injector   set-formfield
+;  )
  
 
  (
@@ -635,7 +641,7 @@
   :row-args   (26)
   :literals   ()
   :plist-keys ()
-  :generator  clean-string
+  :generator  fix-phone-number
   :injector   set-formfield
   )
  
