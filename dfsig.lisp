@@ -8,7 +8,7 @@
 ;; Global vars
 
 
-(defparameter *appdir* "dfsig")
+;(defparameter *appdir* "dfsig")
 (defparameter *independent-exe* nil)
 
 
@@ -46,11 +46,15 @@
 (defun start ()
   (in-package :dfsig)
   ;; Script object -----------------------------------------------------------------------
-  (let ((obj (make-instance 'wax-script
+;  (wg-msg "~a" (appdir))
+;  (wg-msg "~a" (appfile "_description_.lisp"))
+  (let ((obj (make-instance 'wax-app
               :state `(:outdir            ,(user-homedir)
-                       :descripts-file    ,(appfile "_description_.lisp" "DFSIG")
+                       :descripts-file    ,(appfile "_description_.lisp")
+;                       :descripts-file    ,(appfile "_description_.lisp" "DFSIG")
                        :sourcefile        ,(user-homedir)
-                       :inject-doctemp    ,(appfile "Megrendelo.docx" "DFSIG")
+                       :inject-doctemp    ,(appfile "Megrendelo.docx")
+;                       :inject-doctemp    ,(appfile "Megrendelo.docx" "DFSIG")
                        :inject-outfile-fn ,#'(lambda (obj row)
                                                (concatenate 'string
                                                 (get-state obj :outdir)
@@ -84,7 +88,8 @@
                   ;; Cleanup
                   (purge-data-source obj (get-state obj :inject-sourcekey))))))
 
-    (load-state obj :package-name "DFSIG" :keys *pkeys*)
+;    (load-state obj :package-name "DFSIG" :keys *pkeys*)
+    (load-state obj :keys *pkeys*)
 
     ;; GUI -------------------------------------------------------------------------------
     (wg-window "Tanúsítványigénylõk generálása" 80
@@ -118,5 +123,6 @@
       (wg-button "Indítás"
         #'(lambda (interface)
             (declare (ignore interface))
-            (save-state obj :package-name "DFSIG" :keys *pkeys*)
+;            (save-state obj :package-name "DFSIG" :keys *pkeys*)
+            (save-state obj :keys *pkeys*)
             (wax-execute obj :errorsink-on t))))))

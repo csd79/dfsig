@@ -1,4 +1,4 @@
-;;;; Feloldott Megrendelo_2_9-1.docx kitöltésének leírása
+;;;; Feloldott Megrendelo_3_0_minositett.docx kitöltésének leírása
 ;;;; ISO 8859-2, CR LF
 
 
@@ -53,7 +53,7 @@
  
  (
   ;; "(1.2) E-ügyintézés célú tanúsítvány (KET, KGyHSz)"
-  :target     "EugyintNegyzet"
+  :target     4
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -67,7 +67,7 @@
  
  (
   ;; "(1.2) Általános célú tanúsítvány"
-  :target     "AltalanosNegyzet"
+  :target     5
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -78,7 +78,7 @@
  
  (
   ;; "(1.3) Ügyintézésben közremûködõ ügyintézõ"
-  :target     "UgyintezoiNegyzet"
+  :target     6
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -89,7 +89,7 @@
  
  (
   ;; "(1.3) Ügyintézést biztosító szerv nevében történõ kiadmányozást végzõ"
-  :target     "KiadmanyozoiNegyzet"
+  :target     7
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -122,7 +122,7 @@
  
  (
   ;; "(1.4) 0 Ft"
-  :target     "NullaNegyzet"
+  :target     10
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -133,7 +133,7 @@
  
  (
   ;; "(1.4) 1 000 000 Ft"
-  :target     "EgyNegyzet"
+  :target     11
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -144,7 +144,7 @@
  
  (
   ;; "(1.4) 20 000 000 Ft"
-  :target     "HuszNegyzet"
+  :target     12
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -155,7 +155,7 @@
  
  (
   ;; "(1.4) 200 000 000 Ft"
-  :target     "KetszazNegyzet"
+  :target     13
   :row-args   ()
   :literals   (t)
   :plist-keys ()
@@ -177,7 +177,7 @@
  
  (
   ;; "(1.6) USB token (QSCD)"
-  :target     "USBTokenNegyzet"
+  :target     14
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -188,7 +188,7 @@
  
  (
   ;; "(1.6) Chipkártya (QSCD)"
-  :target     "ChipkartyaNegyzet"
+  :target     15
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -199,7 +199,7 @@
  
  (
   ;; "(1.6) Chipkártya olvasó"
-  :target     17
+  :target     16
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -210,7 +210,7 @@
  
  (
   ;; "(1.6) CD"
-  :target     "CDNegyzet"
+  :target     17
   :row-args   ()
   :literals   (t)
   :plist-keys ()
@@ -232,7 +232,7 @@
  
  (
   ;; "(1.6) Az igényhez PKCS10 kérés kapcsolódik"
-  :target     20
+  :target     18
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -243,7 +243,7 @@
  
  (
   ;; "(2) Nyilatkozat (A fent megjelölt tanúsítvány(oka)t a..)"
-  :target     "NyilatkozatNegyzet"
+  :target     20
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -253,34 +253,34 @@
                         :test #'string=))
   :injector   set-checkbox
   )
-
+ 
  
  (
   ;; "(3) Szervezet neve"
-  :target     "SzervezetNeve"
+  :target     21
   :row-args   (1)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
  
  (
   ;; "(3) Adószám"
-  :target     "Adoszam"
+  :target     22
   :row-args   (2)
   :literals   ()
   :plist-keys ()
 ;  :generator  (lambda (value) (parse-string (round (parse-taxid value))))
   :generator  taxid
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
  
  (
   ;; "(3) Ha van közösségi, akkor az jelenjen meg tanúsítványban"
-  :target     22
+  :target     23
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -291,78 +291,79 @@
  
  (
   ;; "(3) Bankszámlaszám"
-  :target     "Bankszamlaszam"
+  :target     24
   :row-args   (3)
   :literals   ()
   :plist-keys ()
   :generator  identity
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
  
  (
   ;; "(3) Irányítószám"
-  :target     "Irszam"
+  :target     25
   :row-args   (4)
   :literals   ()
   :plist-keys ()
   :generator  (lambda (value) (parse-string (round (parse-number value))))
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
  
  (
   ;; "(3) Település"
-  :target     "Telepules"
+  :target     26
   :row-args   (5)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
  
  (
   ;; "(3) Közterület neve, házszám"
-  :target     "Kozter"
+  :target     27
   :row-args   (6)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
-  :injector   set-bookmark
+  :injector   set-formfield
   )
 
 
  (
   ;; "(3) Telefon"
-  :target     "SzervTel"
+  :target     29
   :row-args   (7)
   :literals   ()
   :plist-keys ()
-  :generator  fix-phone-number
-  :injector   set-bookmark
+  :generator  (lambda (value)
+                (subseq (fix-phone-number value) 4))
+  :injector   set-formfield
   )
  
  
  (
   ;; "(3) E-mail cím"
-  :target     "SzervEmail"
+  :target     30
   :row-args   (8)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
 
  (
   ;; "(5) A tanúsítványban megjelenjen?"
-  :target     "SzervEgysNegyzet"
+  :target     40
   :row-args   (9)
   :literals   ()
   :plist-keys ()
   :generator  (lambda (value)
-                (not (or (msoffice:empty-cell-p value)
+                (not (or (ccoffice:empty-cell-p value)
                          (string= value ""))))
   :injector   set-checkbox
   )
@@ -370,40 +371,40 @@
  
  (
   ;; "(5) Szervezeti egység neve"
-  :target     "SzervezetEgyseg"
+  :target     41
   :row-args   (9)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
  
  (
   ;; "(6) Név*"
-  :target     "KepvJogNev"
+  :target     42
   :row-args   (10)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
  
  (
   ;; "(6) Beosztás*"
-  :target     "KepvJogBeoszt"
+  :target     44
   :row-args   (11)
   :literals   ()
   :plist-keys ()
   :generator  clean-string
-  :injector   set-bookmark
+  :injector   set-formfield
   )
  
 
  (
   ;; "(6) Név"
-  :target     "Kepvis2"
+  :target     43
   :row-args   ()
   :literals   ("")
   :plist-keys ()
@@ -414,7 +415,7 @@
  
  (
   ;; "(6) Beosztás"
-  :target     "Szöveg61"
+  :target     45
   :row-args   ()
   :literals   ("")
   :plist-keys ()
@@ -425,7 +426,7 @@
  
  (
   ;; "(7) Viselt családnév"
-  :target     "VisCsNev"
+  :target     46
   :row-args   (12)
   :literals   ()
   :plist-keys ()
@@ -436,7 +437,7 @@
  
  (
   ;; "(7) Viselt utónév 1"
-  :target     "VisUtNev1"
+  :target     47
   :row-args   (13)
   :literals   ()
   :plist-keys ()
@@ -447,7 +448,7 @@
  
  (
   ;; "(7) Viselt utónév 2"
-  :target     "VisUtNev2"
+  :target     48
   :row-args   (14)
   :literals   ()
   :plist-keys ()
@@ -458,7 +459,7 @@
  
  (
   ;; "(7) Születési családnév"
-  :target     "SzulCsNev"
+  :target     49
   :row-args   (15)
   :literals   ()
   :plist-keys ()
@@ -469,7 +470,7 @@
  
  (
   ;; "(7) Születési utónév 1"
-  :target     "SzulUtNev1"
+  :target     50
   :row-args   (16)
   :literals   ()
   :plist-keys ()
@@ -480,7 +481,7 @@
  
  (
   ;; "(7) Születési utónév 2"
-  :target     "SzulUtNev2"
+  :target     51
   :row-args   (17)
   :literals   ()
   :plist-keys ()
@@ -491,7 +492,7 @@
  
  (
   ;; "(7) Anyja születési családneve"
-  :target     "AnyjaCsNev"
+  :target     52
   :row-args   (18)
   :literals   ()
   :plist-keys ()
@@ -502,7 +503,7 @@
  
  (
   ;; "(7) Anyja születési utóneve 1"
-  :target     "AnyjaUtNev1"
+  :target     53
   :row-args   (19)
   :literals   ()
   :plist-keys ()
@@ -513,7 +514,7 @@
  
  (
   ;; "(7) Anyja születési utóneve 2"
-  :target     "AnyjaUtNev2"
+  :target     54
   :row-args   (20)
   :literals   ()
   :plist-keys ()
@@ -524,7 +525,7 @@
  
  (
   ;; "(7) Születési ország"
-  :target     "SzulOrsz"
+  :target     55
   :row-args   (21)
   :literals   ()
   :plist-keys ()
@@ -535,7 +536,7 @@
  
  (
   ;; "(7) Születési hely"
-  :target     "SzulHely"
+  :target     56
   :row-args   (22)
   :literals   ()
   :plist-keys ()
@@ -546,7 +547,7 @@
  
  (
   ;; "(7) Születési dátum"
-  :target     "SzulDatum"
+  :target     57
   :row-args   (23)
   :literals   ()
   :plist-keys ()
@@ -560,20 +561,20 @@
   )
  
  
-; (
-;  ;; "(7.2) Beosztás"
-;  :target     "Beosztas"
-;  :row-args   (24)
-;  :literals   ()
-;  :plist-keys ()
-;  :generator  clean-string
-;  :injector   set-formfield
-;  )
+ ;(
+ ; ;; "(7.2) Beosztás"
+ ; :target     58
+ ; :row-args   (24)
+ ; :literals   ()
+ ; :plist-keys ()
+ ; :generator  clean-string
+ ; :injector   set-formfield
+ ; )
  
 
  (
   ;; "(7.2) A tanúsítványban megjelenjen?"
-  :target     "BeosztNegyzet"
+  :target     59
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -584,7 +585,7 @@
  
  (
   ;; "(7.2) Személyazonosító ig."
-  :target     "SzigNegyzet"
+  :target     60
   :row-args   (25)
   :literals   ()
   :plist-keys ()
@@ -597,7 +598,7 @@
  
  (
   ;; "(7.2) Útlevél"
-  :target     "UtlevelNegyzet"
+  :target     61
   :row-args   (25)
   :literals   ()
   :plist-keys ()
@@ -611,7 +612,7 @@
  
  (
   ;; "(7.2) Vezetõi engedély"
-  :target     "VezengNegyzet"
+  :target     62
   :row-args   (25)
   :literals   ()
   :plist-keys ()
@@ -625,7 +626,7 @@
  
  (
   ;; "(7.2) Igazolvány száma"
-  :target     "Igszam"
+  :target     63
   :row-args   (25)
   :literals   ()
   :plist-keys ()
@@ -637,18 +638,19 @@
 
  (
   ;; "(7.2) Telefon"
-  :target     "Telefon"
+  :target     65
   :row-args   (26)
   :literals   ()
   :plist-keys ()
-  :generator  fix-phone-number
+  :generator  (lambda (value)
+                (subseq (fix-phone-number value) 4))
   :injector   set-formfield
   )
  
  
  (
   ;; "(7.3) E-mail"
-  :target     "Email"
+  :target     66
   :row-args   (27)
   :literals   ()
   :plist-keys ()
@@ -659,7 +661,7 @@
  
 (
   ;; "(8.1) Alany neve"
-  :target     "Szöveg48"
+  :target     67
   :row-args   ()
   :literals   ("")
   :plist-keys ()
@@ -670,7 +672,7 @@
  
  (
   ;; "(8.2) Tanúsítványban megjelenõ e-mail cím"
-  :target     "Szöveg48"
+  :target     68
   :row-args   ()
   :literals   ("")
   :plist-keys ()
@@ -681,7 +683,7 @@
 
  (
   ;; "Kelt hely"
-  :target     "Szöveg56"
+  :target     69
   :row-args   (5)
   :literals   ()
   :plist-keys ()
@@ -692,12 +694,12 @@
   
  (
   ;; "Kelt dátum"
-  :target     "Szöveg57"
+  :target     70
   :row-args   ()
   :literals   ("elektronikus idõbélyegzõ szerint")
   :plist-keys ()
   :generator  clean-string
-  :injector   set-bookmark
+  :injector   set-formfield
   )
 
 
