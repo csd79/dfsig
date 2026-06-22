@@ -7,7 +7,7 @@
 
 ;;; Parameters ---------------------------------------------------
 
-(:starting-row 3)
+(:starting-row 3 :header-row 1)
 
 
 
@@ -19,8 +19,8 @@
  
  
  (
-  ;; "(1) Munkatársi (üzleti) aláíró tanúsítvány"
-  :target     1
+  :field      "(1) Munkatársi (üzleti) aláíró tanúsítvány"
+  :target     (1)
   :row-args   ()
   :literals   (t)
   :plist-keys ()
@@ -30,8 +30,8 @@
  
  
  (
-  ;; "(1) Szervezeti bélyegzõ tanúsítvány"
-  :target     2
+  :field      "(1) Szervezeti bélyegzõ tanúsítvány"
+  :targets    (2)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -41,8 +41,8 @@
  
 
  (
-  ;; "(1) Eszköz bélyegzõ tanúsítvány"
-  :target     3
+  :field      "(1) Eszköz bélyegzõ tanúsítvány"
+  :targets    (3)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -52,8 +52,8 @@
  
  
  (
-  ;; "(1.2) E-ügyintézés célú tanúsítvány (KET, KGyHSz)"
-  :target     4
+  :field      "(1.2) E-ügyintézés célú tanúsítvány (KET, KGyHSz)"
+  :targets    (4)
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -66,8 +66,8 @@
  
  
  (
-  ;; "(1.2) Általános célú tanúsítvány"
-  :target     5
+  :field      "(1.2) Általános célú tanúsítvány"
+  :targets    (5)
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -77,8 +77,8 @@
  
  
  (
-  ;; "(1.3) Ügyintézésben közremûködõ ügyintézõ"
-  :target     6
+  :field      "(1.3) Ügyintézésben közremûködõ ügyintézõ"
+  :targets    (6)
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -88,8 +88,8 @@
  
  
  (
-  ;; "(1.3) Ügyintézést biztosító szerv nevében történõ kiadmányozást végzõ"
-  :target     7
+  :field      "(1.3) Ügyintézést biztosító szerv nevében történõ kiadmányozást végzõ"
+  :targets    (7)
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -99,8 +99,8 @@
  
  
  (
-  ;; "(1.3) Ügyintézést biztosító szerv vagy annak szervezeti egysége (szervezeti bélyegzõ tanúsítvány)"
-  :target     8
+  :field      "(1.3) Ügyintézést biztosító szerv vagy annak szervezeti egysége (szervezeti bélyegzõ tanúsítvány)"
+  :targets    (8)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -110,8 +110,8 @@
  
  
  (
-  ;; "(1.3) Ügyintézést biztosító szerv által mûködtetett informatikai eszköz (eszköz bélyegzõ tanúsítvány)"
-  :target     9
+  :field      "(1.3) Ügyintézést biztosító szerv által mûködtetett informatikai eszköz (eszköz bélyegzõ tanúsítvány)"
+  :targets    (9)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -121,8 +121,8 @@
  
  
  (
-  ;; "(1.4) 0 Ft"
-  :target     10
+  :field      "(1.4) 0 Ft"
+  :targets    (10)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -132,8 +132,8 @@
  
  
  (
-  ;; "(1.4) 1 000 000 Ft"
-  :target     11
+  :field      "(1.4) 1 000 000 Ft"
+  :targets    (11)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -143,8 +143,8 @@
  
  
  (
-  ;; "(1.4) 20 000 000 Ft"
-  :target     12
+  :field      "(1.4) 20 000 000 Ft"
+  :targets    (12)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -154,8 +154,8 @@
  
  
  (
-  ;; "(1.4) 200 000 000 Ft"
-  :target     13
+  :field      "(1.4) 200 000 000 Ft"
+  :targets    (13)
   :row-args   ()
   :literals   (t)
   :plist-keys ()
@@ -165,8 +165,8 @@
  
  
  (
-  ;; "(1.5) A tanúsítvány RSA algoritmussal kerüljön kiállításra"
-  :target     14
+  :field      "(1.5) A tanúsítvány RSA algoritmussal kerüljön kiállításra"
+  :targets    (14)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -176,8 +176,8 @@
  
  
  (
-  ;; "(1.6) USB token (QSCD)"
-  :target     14
+  :field      "(1.6) USB token (QSCD)"
+  :targets    (14)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -187,8 +187,8 @@
  
  
  (
-  ;; "(1.6) Chipkártya (QSCD)"
-  :target     15
+  :field      "(1.6) Chipkártya (QSCD)"
+  :targets    (15)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -198,8 +198,8 @@
  
  
  (
-  ;; "(1.6) Chipkártya olvasó"
-  :target     16
+  :field      "(1.6) Chipkártya olvasó"
+  :targets    (16)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -209,8 +209,8 @@
  
  
  (
-  ;; "(1.6) CD"
-  :target     17
+  :field      "(1.6) CD"
+  :targets    (17)
   :row-args   ()
   :literals   (t)
   :plist-keys ()
@@ -220,8 +220,8 @@
  
  
  (
-  ;; "(1.6) Helyszíni átadást kérek"
-  :target     19
+  :field      "(1.6) Helyszíni átadást kérek"
+  :targets    (19)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -231,8 +231,8 @@
  
  
  (
-  ;; "(1.6) Az igényhez PKCS10 kérés kapcsolódik"
-  :target     18
+  :field      "(1.6) Az igényhez PKCS10 kérés kapcsolódik"
+  :targets    (18)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -242,8 +242,8 @@
  
  
  (
-  ;; "(2) Nyilatkozat (A fent megjelölt tanúsítvány(oka)t a..)"
-  :target     20
+  :field      "(2) Nyilatkozat (A fent megjelölt tanúsítvány(oka)t a..)"
+  :targets    (20)
   :row-args   ()
   :literals   ("E-ügyintézés célú (kiadmányozói)")
   :plist-keys ()
@@ -256,8 +256,8 @@
  
  
  (
-  ;; "(3) Szervezet neve"
-  :target     21
+  :field      "(3) Szervezet neve"
+  :targets    (21)
   :row-args   (1)
   :literals   ()
   :plist-keys ()
@@ -267,8 +267,8 @@
  
  
  (
-  ;; "(3) Adószám"
-  :target     22
+  :field      "(3) Adószám"
+  :targets    (22)
   :row-args   (2)
   :literals   ()
   :plist-keys ()
@@ -279,8 +279,8 @@
  
  
  (
-  ;; "(3) Ha van közösségi, akkor az jelenjen meg tanúsítványban"
-  :target     23
+  :field      "(3) Ha van közösségi, akkor az jelenjen meg tanúsítványban"
+  :targets    (23)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -290,8 +290,8 @@
  
  
  (
-  ;; "(3) Bankszámlaszám"
-  :target     24
+  :field      "(3) Bankszámlaszám"
+  :targets    (24)
   :row-args   (3)
   :literals   ()
   :plist-keys ()
@@ -301,8 +301,8 @@
  
  
  (
-  ;; "(3) Irányítószám"
-  :target     25
+  :field      "(3) Irányítószám"
+  :targets    (25)
   :row-args   (4)
   :literals   ()
   :plist-keys ()
@@ -312,8 +312,8 @@
  
  
  (
-  ;; "(3) Település"
-  :target     26
+  :field      "(3) Település"
+  :targets    (26)
   :row-args   (5)
   :literals   ()
   :plist-keys ()
@@ -323,8 +323,8 @@
  
  
  (
-  ;; "(3) Közterület neve, házszám"
-  :target     27
+  :field      "(3) Közterület neve, házszám"
+  :targets    (27)
   :row-args   (6)
   :literals   ()
   :plist-keys ()
@@ -334,8 +334,8 @@
 
 
  (
-  ;; "(3) Telefon"
-  :target     29
+  :field      "(3) Telefon"
+  :targets    (29)
   :row-args   (7)
   :literals   ()
   :plist-keys ()
@@ -346,8 +346,8 @@
  
  
  (
-  ;; "(3) E-mail cím"
-  :target     30
+  :field      "(3) E-mail cím"
+  :targets    (30)
   :row-args   (8)
   :literals   ()
   :plist-keys ()
@@ -357,8 +357,8 @@
  
 
  (
-  ;; "(5) A tanúsítványban megjelenjen?"
-  :target     40
+  :field      "(5) A tanúsítványban megjelenjen?"
+  :targets    (40)
   :row-args   (9)
   :literals   ()
   :plist-keys ()
@@ -370,8 +370,8 @@
 
  
  (
-  ;; "(5) Szervezeti egység neve"
-  :target     41
+  :field      "(5) Szervezeti egység neve"
+  :targets    (41)
   :row-args   (9)
   :literals   ()
   :plist-keys ()
@@ -381,8 +381,8 @@
  
  
  (
-  ;; "(6) Név*"
-  :target     42
+  :field      "(6) Név*"
+  :targets    (42)
   :row-args   (10)
   :literals   ()
   :plist-keys ()
@@ -392,8 +392,8 @@
  
  
  (
-  ;; "(6) Beosztás*"
-  :target     44
+  :field      "(6) Beosztás*"
+  :targets    (44)
   :row-args   (11)
   :literals   ()
   :plist-keys ()
@@ -403,8 +403,8 @@
  
 
  (
-  ;; "(6) Név"
-  :target     43
+  :field      "(6) Név"
+  :targets    (43)
   :row-args   ()
   :literals   ("")
   :plist-keys ()
@@ -414,8 +414,8 @@
  
  
  (
-  ;; "(6) Beosztás"
-  :target     45
+  :field      "(6) Beosztás"
+  :targets    (45)
   :row-args   ()
   :literals   ("")
   :plist-keys ()
@@ -425,8 +425,8 @@
 
  
  (
-  ;; "(7) Viselt családnév"
-  :target     46
+  :field      "(7) Viselt családnév"
+  :targets    (46)
   :row-args   (12)
   :literals   ()
   :plist-keys ()
@@ -436,8 +436,8 @@
  
  
  (
-  ;; "(7) Viselt utónév 1"
-  :target     47
+  :field      "(7) Viselt utónév 1"
+  :targets    (47)
   :row-args   (13)
   :literals   ()
   :plist-keys ()
@@ -447,8 +447,8 @@
  
  
  (
-  ;; "(7) Viselt utónév 2"
-  :target     48
+  :field      "(7) Viselt utónév 2"
+  :targets    (48)
   :row-args   (14)
   :literals   ()
   :plist-keys ()
@@ -458,8 +458,8 @@
  
  
  (
-  ;; "(7) Születési családnév"
-  :target     49
+  :field      "(7) Születési családnév"
+  :targets    (49)
   :row-args   (15)
   :literals   ()
   :plist-keys ()
@@ -469,8 +469,8 @@
  
  
  (
-  ;; "(7) Születési utónév 1"
-  :target     50
+  :field      "(7) Születési utónév 1"
+  :targets    (50)
   :row-args   (16)
   :literals   ()
   :plist-keys ()
@@ -480,8 +480,8 @@
  
  
  (
-  ;; "(7) Születési utónév 2"
-  :target     51
+  :field      "(7) Születési utónév 2"
+  :targets    (51)
   :row-args   (17)
   :literals   ()
   :plist-keys ()
@@ -491,8 +491,8 @@
  
  
  (
-  ;; "(7) Anyja születési családneve"
-  :target     52
+  :field      "(7) Anyja születési családneve"
+  :targets    (52)
   :row-args   (18)
   :literals   ()
   :plist-keys ()
@@ -502,8 +502,8 @@
  
  
  (
-  ;; "(7) Anyja születési utóneve 1"
-  :target     53
+  :field      "(7) Anyja születési utóneve 1"
+  :targets    (53)
   :row-args   (19)
   :literals   ()
   :plist-keys ()
@@ -513,8 +513,8 @@
  
  
  (
-  ;; "(7) Anyja születési utóneve 2"
-  :target     54
+  :field      "(7) Anyja születési utóneve 2"
+  :targets    (54)
   :row-args   (20)
   :literals   ()
   :plist-keys ()
@@ -524,8 +524,8 @@
  
  
  (
-  ;; "(7) Születési ország"
-  :target     55
+  :field      "(7) Születési ország"
+  :targets    (55)
   :row-args   (21)
   :literals   ()
   :plist-keys ()
@@ -535,8 +535,8 @@
  
  
  (
-  ;; "(7) Születési hely"
-  :target     56
+  :field      "(7) Születési hely"
+  :targets    (56)
   :row-args   (22)
   :literals   ()
   :plist-keys ()
@@ -546,8 +546,8 @@
  
  
  (
-  ;; "(7) Születési dátum"
-  :target     57
+  :field      "(7) Születési dátum"
+  :targets    (57)
   :row-args   (23)
   :literals   ()
   :plist-keys ()
@@ -562,8 +562,8 @@
  
  
  ;(
- ; ;; "(7.2) Beosztás"
- ; :target     58
+ ;:field       "(7.2) Beosztás"
+ ; :targes     58
  ; :row-args   (24)
  ; :literals   ()
  ; :plist-keys ()
@@ -573,8 +573,8 @@
  
 
  (
-  ;; "(7.2) A tanúsítványban megjelenjen?"
-  :target     59
+  :field      "(7.2) A tanúsítványban megjelenjen?"
+  :targets    (59)
   :row-args   ()
   :literals   (nil)
   :plist-keys ()
@@ -584,8 +584,8 @@
 
  
  (
-  ;; "(7.2) Személyazonosító ig."
-  :target     60
+  :field      "(7.2) Személyazonosító ig."
+  :targets    (60)
   :row-args   (25)
   :literals   ()
   :plist-keys ()
@@ -597,8 +597,8 @@
  
  
  (
-  ;; "(7.2) Útlevél"
-  :target     61
+  :field      "(7.2) Útlevél"
+  :targets    (61)
   :row-args   (25)
   :literals   ()
   :plist-keys ()
@@ -611,8 +611,8 @@
  
  
  (
-  ;; "(7.2) Vezetõi engedély"
-  :target     62
+  :field      "(7.2) Vezetõi engedély"
+  :targets    (62)
   :row-args   (25)
   :literals   ()
   :plist-keys ()
@@ -625,8 +625,8 @@
  
  
  (
-  ;; "(7.2) Igazolvány száma"
-  :target     63
+  :field      "(7.2) Igazolvány száma"
+  :targets    (63)
   :row-args   (25)
   :literals   ()
   :plist-keys ()
@@ -637,8 +637,8 @@
 
 
  (
-  ;; "(7.2) Telefon"
-  :target     65
+  :field      "(7.2) Telefon"
+  :targets    (65)
   :row-args   (26)
   :literals   ()
   :plist-keys ()
@@ -649,8 +649,8 @@
  
  
  (
-  ;; "(7.3) E-mail"
-  :target     66
+  :field      "(7.3) E-mail"
+  :targets    (66)
   :row-args   (27)
   :literals   ()
   :plist-keys ()
@@ -660,8 +660,8 @@
  
  
 (
-  ;; "(8.1) Alany neve"
-  :target     67
+  :field      "(8.1) Alany neve"
+  :targets    (67)
   :row-args   ()
   :literals   ("")
   :plist-keys ()
@@ -671,8 +671,8 @@
  
  
  (
-  ;; "(8.2) Tanúsítványban megjelenõ e-mail cím"
-  :target     68
+  :field      "(8.2) Tanúsítványban megjelenõ e-mail cím"
+  :targets    (68)
   :row-args   ()
   :literals   ("")
   :plist-keys ()
@@ -682,8 +682,8 @@
  
 
  (
-  ;; "Kelt hely"
-  :target     69
+  :field      "Kelt hely"
+  :targets    (69)
   :row-args   (5)
   :literals   ()
   :plist-keys ()
@@ -693,8 +693,8 @@
 
   
  (
-  ;; "Kelt dátum"
-  :target     70
+  :field      "Kelt dátum"
+  :targets    (70)
   :row-args   ()
   :literals   ("elektronikus idõbélyegzõ szerint")
   :plist-keys ()

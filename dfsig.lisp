@@ -8,7 +8,6 @@
 ;; Global vars
 
 
-;(defparameter *appdir* "dfsig")
 (defparameter *independent-exe* nil)
 
 
@@ -43,18 +42,20 @@
 (defparameter *pkeys* '(:outdir :sourcefile))
 
 
+(defun row-ids (row)
+  (format nil "   SZEMÉLY: ~a ~a ~a (adóazonosító: ~a)~%   INTÉZMÉNY: ~a, ~a~%   BEOSZTÁS: ~a"
+          (xcref row 12) (xcref row 13) (if (empty-cell-p (xcref row 14)) "" (xcref row 14))
+          (round (xcref row 2)) (xcref row 1) (xcref row 9) (xcref row 24)))
+
+
 (defun start ()
   (in-package :dfsig)
   ;; Script object -----------------------------------------------------------------------
-;  (wg-msg "~a" (appdir))
-;  (wg-msg "~a" (appfile "_description_.lisp"))
   (let ((obj (make-instance 'wax-app
               :state `(:outdir            ,(user-homedir)
                        :descripts-file    ,(appfile "_description_.lisp")
-;                       :descripts-file    ,(appfile "_description_.lisp" "DFSIG")
                        :sourcefile        ,(user-homedir)
                        :inject-doctemp    ,(appfile "Megrendelo.docx")
-;                       :inject-doctemp    ,(appfile "Megrendelo.docx" "DFSIG")
                        :inject-outfile-fn ,#'(lambda (obj row)
                                                (concatenate 'string
                                                 (get-state obj :outdir)
@@ -67,7 +68,6 @@
                        :inject-save-pdf   t)
               :execute-fn
               #'(lambda (obj)
-;                  (wg-msg "~a" (package-name *package*))
                   ;; Loading description & parameters
                   (multiple-value-bind (params descripts)
                       (load-descriptions
@@ -84,11 +84,10 @@
                         (xarray-actual-height
                          (source-data obj (get-state obj :inject-sourcekey))))
                   ;; Starting process
-                  (inject::injection obj :greeting "Inicializálás...~%~%")
+                  (inject::injection obj :greeting "Inicializálás...~%~%" :row-ids #'row-ids)
                   ;; Cleanup
                   (purge-data-source obj (get-state obj :inject-sourcekey))))))
 
-;    (load-state obj :package-name "DFSIG" :keys *pkeys*)
     (load-state obj :keys *pkeys*)
 
     ;; GUI -------------------------------------------------------------------------------
@@ -123,6 +122,5 @@
       (wg-button "Indítás"
         #'(lambda (interface)
             (declare (ignore interface))
-;            (save-state obj :package-name "DFSIG" :keys *pkeys*)
             (save-state obj :keys *pkeys*)
             (wax-execute obj :errorsink-on t))))))
