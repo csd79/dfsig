@@ -7,7 +7,7 @@
 
 ;;; Parameters ---------------------------------------------------
 
-(:starting-row 3 :header-row 1)
+(:first-row 4 :header-row 2)
 
 
 
@@ -272,7 +272,7 @@
   :row-args   (2)
   :literals   ()
   :plist-keys ()
-;  :generator  (lambda (value) (parse-string (round (parse-taxid value))))
+;  :generator  (lambda (value) (parse-string/ (round (parse-taxid value))))
   :generator  taxid
   :injector   set-formfield
   )
@@ -306,7 +306,7 @@
   :row-args   (4)
   :literals   ()
   :plist-keys ()
-  :generator  (lambda (value) (parse-string (round (parse-number value))))
+  :generator  (lambda (value) (parse-string/ (round (parse-number value))))
   :injector   set-formfield
   )
  

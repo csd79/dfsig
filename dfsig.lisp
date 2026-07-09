@@ -50,6 +50,7 @@
 
 (defun start ()
   (in-package :dfsig)
+
   ;; Script object -----------------------------------------------------------------------
   (let ((obj (make-instance 'wax-app
               :state `(:outdir            ,(user-homedir)
@@ -66,6 +67,7 @@
                        :inject-sourcekey  :source
                        :inject-dump-fn    ,#'full-name
                        :inject-save-pdf   t)
+
               :execute-fn
               #'(lambda (obj)
                   ;; Loading description & parameters
@@ -74,17 +76,22 @@
                        (get-state obj :descripts-file))
                     (setf (get-state obj :inject-descripts) descripts
                           (get-state obj :inject-params) params))
+
                   ;; Adding & loading source spreadsheet
                   (add-data-source obj (get-state obj :inject-sourcekey)
                                    (get-state obj :sourcefile))
                   (load-data-source obj (get-state obj :inject-sourcekey)
-                                    (getf (get-state obj :inject-params) :starting-row))
+                                    :first-row  (getf (get-state obj :inject-params) :first-row)
+                                    :header-row (getf (get-state obj :inject-params) :header-row))
+
                   ;; Setting progress bar length
                   (setf (pstep-limit obj)
                         (xarray-actual-height
                          (source-data obj (get-state obj :inject-sourcekey))))
+
                   ;; Starting process
                   (inject::injection obj :greeting "Inicializálás...~%~%" :row-ids #'row-ids)
+
                   ;; Cleanup
                   (purge-data-source obj (get-state obj :inject-sourcekey))))))
 
