@@ -5,5 +5,5 @@
 
 
 (defpackage #:dfsig
-  (:use #:cl #:ccom4 #:ccoffice #:wax #:inject)
+  (:use #:cl #:utils #:ccom4 #:ccoffice #:wax #:inject)
   (:export #:start))

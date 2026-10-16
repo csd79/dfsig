@@ -45,7 +45,8 @@
 (defun row-ids (row)
   (format nil "   SZEMÉLY: ~a ~a ~a (adóazonosító: ~a)~%   INTÉZMÉNY: ~a, ~a~%   BEOSZTÁS: ~a"
           (xcref row 12) (xcref row 13) (if (empty-cell-p (xcref row 14)) "" (xcref row 14))
-          (round (xcref row 2)) (xcref row 1) (xcref row 9) (xcref row 24)))
+;          (round (xcref row 2)) (xcref row 1) (xcref row 9) (xcref row 24)))
+          (xcref row 2) (xcref row 1) (xcref row 9) (xcref row 24)))
 
 
 (defun start ()
@@ -69,7 +70,7 @@
                        :inject-save-pdf   t)
 
               :execute-fn
-              #'(lambda (obj)
+              #'(lambda (obj &rest args)
                   ;; Loading description & parameters
                   (multiple-value-bind (params descripts)
                       (load-descriptions
@@ -84,10 +85,10 @@
                                     :first-row  (getf (get-state obj :inject-params) :first-row)
                                     :header-row (getf (get-state obj :inject-params) :header-row))
 
-                  ;; Setting progress bar length
+#|                  ;; Setting progress bar length
                   (setf (pstep-limit obj)
                         (xarray-actual-height
-                         (source-data obj (get-state obj :inject-sourcekey))))
+                         (source-data obj (get-state obj :inject-sourcekey))))|#
 
                   ;; Starting process
                   (inject::injection obj :greeting "Inicializálás...~%~%" :row-ids #'row-ids)
@@ -98,7 +99,11 @@
     (load-state obj :keys *pkeys*)
 
     ;; GUI -------------------------------------------------------------------------------
-    (wg-window "Tanúsítványigénylõk generálása" 80
+    (wg-window
+      `(:title "Tanúsítványigénylõk generálása"
+        :max-height 80
+        :best-width 650)
+     
       "Igénylés táblázat"
       (wg-file-selector
        "Igénylés táblázat"
